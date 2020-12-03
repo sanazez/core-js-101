@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function encodeToRot13(str) {
+     let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+          const array = str.split('');
+          array.forEach((element,i,array) => {
+               let index = alphabet.indexOf(element.toUpperCase());
+              if(index !== -1){
+                index = index+13;
+                if(index>25) index = index-26;
+                if(element === element.toUpperCase()){
+                  element = alphabet[Math.abs(index)];
+                } else {
+                  element = alphabet[Math.abs(index)].toLowerCase();
+                }
+                array[i] = element;
+              }
+                           return element;
+          });
+ return array.join('');
+}
+console.log(encodeToRot13('Why did the chicken cross the road?'));
+    </script>
+</body>
+</html>
