@@ -8,27 +8,15 @@
 </head>
 <body>
   <script>
-
-    function encodeToRot13(str) {
-     let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-          const array = str.split('');
-          array.forEach((element,i,array) => {
-               let index = alphabet.indexOf(element.toUpperCase());
-              if(index !== -1){
-                index = index+13;
-                if(index>25) index = index-26;
-                if(element === element.toUpperCase()){
-                  element = alphabet[Math.abs(index)];
-                } else {
-                  element = alphabet[Math.abs(index)].toLowerCase();
-                }
-                array[i] = element;
-              }
-                           return element;
-          });
- return array.join('');
+    function generateOdds(len) {
+  const array = new Array(len).fill(1);
+  const newArray = array.reduce((res, element, index) => {
+    const num = index * 2 + element;
+        return res.concat(num);
+  }, []);
+  return newArray;
 }
-console.log(encodeToRot13('Why did the chicken cross the road?'));
+console.log(generateOdds(7));
     </script>
 </body>
 </html>
