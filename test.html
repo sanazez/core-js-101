@@ -8,15 +8,11 @@
 </head>
 <body>
   <script>
-    function generateOdds(len) {
-  const array = new Array(len).fill(1);
-  const newArray = array.reduce((res, element, index) => {
-    const num = index * 2 + element;
-        return res.concat(num);
-  }, []);
-  return newArray;
-}
-console.log(generateOdds(7));
+const getSum = (array, n) => {
+    if (n === -1) return 0;
+   else return array[n] + getSum(array, n - 1);
+  };
+console.log(getSum([1,1,1,1],3));
     </script>
 </body>
 </html>
